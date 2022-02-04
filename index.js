@@ -1,6 +1,7 @@
 const mySecret = process.env['TOKEN']
 const Discord = require("discord.js")
 const { Client, Intents } = require('discord.js');
+const keepAlive = require("./server")
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 let lolNames = [
@@ -54,4 +55,5 @@ client.on("message", msg => {
   }
   })
 
+  keepAlive()
   client.login(process.env.TOKEN)
